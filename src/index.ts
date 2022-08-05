@@ -6,10 +6,14 @@ import mikroConfig from "./mikro-orm.config";
 const main = async () => {
   const orm = await MikroORM.init(mikroConfig);
 
-  const post = orm.em.create(Post, { title: "my first first", createdAt:, updatedAt: });
-  await orm.em.persistAndFlush(post)
+  const post = orm.em.create(Post, {
+    title: "my first first",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  });
+  await orm.em.persistAndFlush(post);
 };
 
-main().catch((err)=>{
-    console.error(err)
+main().catch((err) => {
+  console.error(err);
 });

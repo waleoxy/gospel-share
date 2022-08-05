@@ -9,17 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Post = void 0;
+exports.CustomBaseEntity = void 0;
 const core_1 = require("@mikro-orm/core");
-const CustomBaseEntity_1 = require("./CustomBaseEntity");
-let Post = class Post extends CustomBaseEntity_1.CustomBaseEntity {
-};
+class CustomBaseEntity {
+    constructor() {
+        this.id = Number;
+        this.createdAt = new Date();
+        this.updatedAt = new Date();
+    }
+}
+__decorate([
+    (0, core_1.PrimaryKey)(),
+    __metadata("design:type", Object)
+], CustomBaseEntity.prototype, "id", void 0);
 __decorate([
     (0, core_1.Property)(),
-    __metadata("design:type", String)
-], Post.prototype, "title", void 0);
-Post = __decorate([
-    (0, core_1.Entity)()
-], Post);
-exports.Post = Post;
-//# sourceMappingURL=Post.js.map
+    __metadata("design:type", Object)
+], CustomBaseEntity.prototype, "createdAt", void 0);
+__decorate([
+    (0, core_1.Property)({ onUpdate: () => new Date() }),
+    __metadata("design:type", Object)
+], CustomBaseEntity.prototype, "updatedAt", void 0);
+exports.CustomBaseEntity = CustomBaseEntity;
+//# sourceMappingURL=CustomBaseEntity.js.map
