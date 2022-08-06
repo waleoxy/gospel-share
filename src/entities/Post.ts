@@ -1,8 +1,22 @@
-import { Entity, Property } from "@mikro-orm/core";
-import { CustomBaseEntity } from "./CustomBaseEntity";
+import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
+import { Field } from "type-graphql";
 
+@Object
 @Entity()
-export class Post extends CustomBaseEntity {
-  @Property()
+export class Post {
+  @Field()
+  @PrimaryKey()
+  id!: number;
+
+  @Field(() => String)
+  @Property({ type: "date" })
+  createdAt = new Date();
+
+  @Field(() => String)
+  @Property({ type: "date", onUpdate: () => new Date() })
+  updatedAt = new Date();
+
+  @Field()
+  @Property({ type: "text" })
   title!: string;
 }
