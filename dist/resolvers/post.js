@@ -11,22 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostResolver = void 0;
 const Post_1 = require("src/entities/Post");
 const type_graphql_1 = require("type-graphql");
 let PostResolver = class PostResolver {
-    posts(ctx) {
-        return "Ciaoooo world";
+    posts({ em }) {
+        return em.find(Post_1.Post, {});
     }
 };
 __decorate([
-    (0, type_graphql_1.Query)(() => Post_1.Post),
+    (0, type_graphql_1.Query)(() => [Post_1.Post]),
     __param(0, (0, type_graphql_1.Ctx)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_a = typeof MyContext !== "undefined" && MyContext) === "function" ? _a : Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
 ], PostResolver.prototype, "posts", null);
 PostResolver = __decorate([
     (0, type_graphql_1.Resolver)()
