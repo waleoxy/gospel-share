@@ -13,21 +13,17 @@ exports.CustomBaseEntity = void 0;
 const core_1 = require("@mikro-orm/core");
 class CustomBaseEntity {
     constructor() {
-        this.id = Number;
         this.createdAt = new Date();
         this.updatedAt = new Date();
     }
 }
 __decorate([
     (0, core_1.PrimaryKey)(),
-    __metadata("design:type", Object)
-], CustomBaseEntity.prototype, "id", void 0);
-__decorate([
-    (0, core_1.Property)(),
+    (0, core_1.Property)({ type: "date" }),
     __metadata("design:type", Object)
 ], CustomBaseEntity.prototype, "createdAt", void 0);
 __decorate([
-    (0, core_1.Property)({ onUpdate: () => new Date() }),
+    (0, core_1.Property)({ type: "date", onUpdate: () => new Date() }),
     __metadata("design:type", Object)
 ], CustomBaseEntity.prototype, "updatedAt", void 0);
 exports.CustomBaseEntity = CustomBaseEntity;
