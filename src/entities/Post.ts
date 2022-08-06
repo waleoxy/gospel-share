@@ -1,7 +1,7 @@
 import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
 import { Field } from "type-graphql";
 
-@Object
+@Object()
 @Entity()
 export class Post {
   @Field()
