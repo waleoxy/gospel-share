@@ -8,6 +8,7 @@ const Post_1 = require("./entities/Post");
 require("reflect-metadata");
 const core_1 = require("@mikro-orm/core");
 const path_1 = __importDefault(require("path"));
+const User_1 = require("./entities/User");
 exports.default = {
     migrations: {
         tableName: "mikro_orm_migrations",
@@ -15,7 +16,7 @@ exports.default = {
         glob: "!(*.d).{js,ts}",
     },
     metadataProvider: core_1.ReflectMetadataProvider,
-    entities: [Post_1.Post],
+    entities: [Post_1.Post, User_1.User],
     dbName: "gospelShareDb",
     type: "postgresql",
     debug: !constants_1.__prod__,
