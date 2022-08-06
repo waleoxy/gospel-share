@@ -39,7 +39,7 @@ __decorate([
     __metadata("design:type", String)
 ], Post.prototype, "title", void 0);
 Post = __decorate([
-    Object(),
+    (0, type_graphql_1.ObjectType)(),
     (0, core_1.Entity)()
 ], Post);
 exports.Post = Post;

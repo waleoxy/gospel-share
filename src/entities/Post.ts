@@ -1,7 +1,7 @@
 import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
-import { Field } from "type-graphql";
+import { Field, ObjectType } from "type-graphql";
 
-@Object()
+@ObjectType()
 @Entity()
 export class Post {
   @Field()

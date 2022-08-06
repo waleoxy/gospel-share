@@ -5,6 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("./constants");
 const Post_1 = require("./entities/Post");
+require("reflect-metadata");
+const core_1 = require("@mikro-orm/core");
 const path_1 = __importDefault(require("path"));
 exports.default = {
     migrations: {
@@ -12,6 +14,7 @@ exports.default = {
         path: path_1.default.join(__dirname, "./migrations"),
         glob: "!(*.d).{js,ts}",
     },
+    metadataProvider: core_1.ReflectMetadataProvider,
     entities: [Post_1.Post],
     dbName: "gospelShareDb",
     type: "postgresql",
