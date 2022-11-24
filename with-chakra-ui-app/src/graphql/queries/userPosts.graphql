@@ -1,0 +1,16 @@
+query UserPosts($limit: Float!, $id: Int!) {
+  userPosts(limit: $limit, id: $id) {
+    hasMore
+    posts {
+      creatorId
+      id
+      title
+      text
+      textSnippet
+      creator {
+        id
+        username
+      }
+    }
+  }
+}

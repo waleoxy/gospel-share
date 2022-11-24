@@ -1,0 +1,6 @@
+fragment UpdatePostFragment on Post {
+  id
+  text
+  textSnippet
+  title
+}
